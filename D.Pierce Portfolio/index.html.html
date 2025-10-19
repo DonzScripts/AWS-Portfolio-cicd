@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><!-- TODO: Your Name --> Donzie Pierce | Web Dev • Cloud Engineer</title>
+  <meta name="description" content="Portfolio of <!-- TODO: Your Name -->—web developer, cloud engineer, and prompt engineer leveraging AI for speed and quality." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css.css" />
+</head>
+<body>
+  <!-- Animated background canvas (matrix-rain / bits) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="logo">
+      <!-- TODO: Replace with your mark/logo if you have one -->
+      <span class="glyph">λ</span>
+      <span><!-- TODO: Your Name --> Donzie</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#certs">Certs</a>
+      <a href="#contact" class="btn">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1><span class="hi">Hi, I’m</span> <span class="name"><!-- TODO: Your Name --> Donzie Pierce</span></h1>
+        <h2 class="typing">
+          <span id="typed"></span>
+          <span class="cursor">|</span>
+        </h2>
+
+        <p class="tagline">
+          I build fast, reliable web apps and cloud systems—
+          <strong>using AI + prompt engineering</strong> to ship smarter and faster.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="num" data-target="12">0</div>
+            <div class="label">Shipped Projects</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-target="4">0</div>
+            <div class="label">Cloud Deployments</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-target="8">0</div>
+            <div class="label">AI-assisted Builds</div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary">See My Work</a>
+          <a href="#contact" class="btn btn-ghost">Hire Me</a>
+        </div>
+
+        <!-- Subtle animated “cloud + code” badge -->
+        <div class="cloud-chip" aria-hidden="true">
+          <svg viewBox="0 0 260 80" class="chip-svg">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0%" stop-color="var(--neon)"/>
+                <stop offset="100%" stop-color="#7dffb3"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="256" height="76" rx="12" ry="12" class="chip"/>
+            <text x="130" y="50" text-anchor="middle" class="chip-text">CLOUD • DEV • AI</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <h3>About Me</h3>
+        <p>What I bring to your team</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="<!-- TODO: Your headshot path e.g. /assets/me.jpg -->" alt="Your headshot" class="headshot" />
+        </div>
+        <div class="about-card">
+          <p>
+            I’m a <strong>web developer</strong> and <strong>cloud engineer</strong> who leverages
+            <strong>AI and prompt engineering</strong> to accelerate delivery without sacrificing quality.
+            I turn product ideas into production-ready apps—instrumented, secure, and CI/CD-driven.
+          </p>
+          <ul class="bullets">
+            <li>Deep focus on DX, component systems, and performance budgets.</li>
+            <li>Infrastructure as Code (Terraform), containers, and CI/CD with GitHub Actions.</li>
+            <li>APIs that scale; deployments on AWS (ECS/Fargate, Amplify, S3+CloudFront, Lambda).</li>
+            <li>AI copilots: using prompts + RAG to scaffold, refactor, and test faster.</li>
+          </ul>
+          <div class="badges">
+            <!-- TODO: Adjust to your stack -->
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span>
+            <span>Flask</span><span>Node</span><span>React</span>
+            <span>AWS</span><span>Terraform</span><span>Docker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section alt">
+      <div class="section-head">
+        <h3>Technical Focus</h3>
+        <p>Modern web + practical cloud</p>
+      </div>
+
+      <div class="skill-cards">
+        <article class="skill-card reveal">
+          <h4>Front-End Engineering</h4>
+          <p>Design systems, accessibility, motion, and performance-first UX.</p>
+          <ul>
+            <li>Semantic HTML, modern CSS, GSAP-style motion (vanilla here)</li>
+            <li>React/Next patterns, component libraries, Storybook</li>
+            <li>Core Web Vitals & Lighthouse discipline</li>
+          </ul>
+        </article>
+
+        <article class="skill-card reveal">
+          <h4>Cloud & DevOps</h4>
+          <p>AWS-first shipping: secure, observable, automated.</p>
+          <ul>
+            <li>IaC (Terraform), Docker, GitHub Actions</li>
+            <li>ECS/Fargate, Lambda, API Gateway, S3 + CloudFront</li>
+            <li>Logging/metrics: CloudWatch, OpenTelemetry</li>
+          </ul>
+        </article>
+
+        <article class="skill-card reveal">
+          <h4>AI-Accelerated Delivery</h4>
+          <p>Prompt engineering + pragmatic AI tools to move faster.</p>
+          <ul>
+            <li>Spec-to-scaffold prompting, refactor + test prompts</li>
+            <li>Docs/chatbots (RAG), content tools, codegen QA loops</li>
+            <li>Ethical + secure integration practices</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h3>Featured Projects</h3>
+        <p>Real work, real outcomes</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- PROJECT CARD 1 -->
+        <article class="project-card tilt reveal">
+          <!-- TODO: Replace image and links -->
+          <img src="<!-- /assets/project1.jpg -->" alt="Project screenshot" />
+          <div class="project-body">
+            <h4><!-- TODO: Project Name --> AI-Aided Roofing Leads</h4>
+            <p><!-- TODO: Short result blurb -->
+              Built a high-converting landing system with serverless backend; cut CPA by 34%.
+            </p>
+            <ul class="tags">
+              <li>AWS</li><li>Lambda</li><li>API Gateway</li><li>S3+CloudFront</li>
+            </ul>
+            <div class="links">
+              <a href="#" class="btn btn-mini">Live</a>
+              <a href="#" class="btn btn-mini btn-ghost">Code</a>
+              <a href="#" class="btn btn-mini btn-ghost">Case Study</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 2 -->
+        <article class="project-card tilt reveal">
+          <img src="<!-- /assets/project2.jpg -->" alt="Project screenshot" />
+          <div class="project-body">
+            <h4><!-- TODO: Project Name --> Weather Oracle</h4>
+            <p>Responsive PWA with caching + clean error states; 95+ Lighthouse scores.</p>
+            <ul class="tags">
+              <li>HTML</li><li>CSS</li><li>JS</li><li>PWA</li>
+            </ul>
+            <div class="links">
+              <a href="#" class="btn btn-mini">Live</a>
+              <a href="#" class="btn btn-mini btn-ghost">Code</a>
+              <a href="#" class="btn btn-mini btn-ghost">Case Study</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 3 -->
+        <article class="project-card tilt reveal">
+          <img src="<!-- /assets/project3.jpg -->" alt="Project screenshot" />
+          <div class="project-body">
+            <h4><!-- TODO: Project Name --> Prompt-Built Portfolio</h4>
+            <p>Portfolio generated with AI + handcrafted polish; CI deploy to CloudFront.</p>
+            <ul class="tags">
+              <li>Prompt Eng</li><li>AWS</li><li>CI/CD</li>
+            </ul>
+            <div class="links">
+              <a href="#" class="btn btn-mini">Live</a>
+              <a href="#" class="btn btn-mini btn-ghost">Code</a>
+              <a href="#" class="btn btn-mini btn-ghost">Case Study</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES (hiring managers love outcomes) -->
+    <section id="case-studies" class="section alt">
+      <div class="section-head">
+        <h3>Case Studies</h3>
+        <p>Impact with receipts</p>
+      </div>
+      <div class="cs-grid">
+        <article class="cs-card reveal">
+          <h4><!-- TODO: Case Study Title --> Lead System Revamp</h4>
+          <p><!-- TODO: Replace with 2–3 sentence summary -->
+            Migrated a manual intake to serverless API + CRM webhooks. Time-to-lead down from
+            10m to &lt;30s; response rates up 22%.
+          </p>
+          <ul class="bullets tight">
+            <li>Design diagram: API GW → Lambda → DynamoDB → webhook</li>
+            <li>Infra as Code; preview envs on PR</li>
+          </ul>
+          <a href="#" class="btn btn-mini">Read More</a>
+        </article>
+        <article class="cs-card reveal">
+          <h4><!-- TODO: Case Study Title --> Weather Oracle PWA</h4>
+          <p>Offline-first PWA; skeleton states; 97 Performance on mobile.</p>
+          <ul class="bullets tight">
+            <li>SW caching, background sync</li>
+            <li>CLS &lt; 0.03, LCP ~1.6s</li>
+          </ul>
+          <a href="#" class="btn btn-mini">Read More</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS / PROOF -->
+    <section id="certs" class="section">
+      <div class="section-head">
+        <h3>Certifications & Proof</h3>
+        <p>Cloud skills, validated</p>
+      </div>
+      <div class="certs">
+        <!-- TODO: Replace with your actual badges/links -->
+        <a href="#" class="badge">AWS Cloud Practitioner</a>
+        <a href="#" class="badge">AWS Solutions Architect (in progress)</a>
+        <a href="#" class="badge">freeCodeCamp Responsive Web Design</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section alt">
+      <div class="section-head">
+        <h3>Contact</h3>
+        <p>Let’s ship something great</p>
+      </div>
+      <form class="contact-form reveal" method="POST" action="/contact">
+        <!-- If you don't run the Flask backend, swap action to a form tool (e.g., Formspree) -->
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" placeholder="Tell me about your project…" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send</button>
+        <p class="form-note">
+          Prefer email? <!-- TODO: Your email -->
+          <a href="mailto:you@example.com">you@example.com</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> <!-- TODO: Your Name --> Donzie Pierce • Built with HTML/CSS/JS + Python • Deployed on AWS</p>
+    <div class="footer-icons" aria-hidden="true">
+      <span>☁️</span><span>💻</span><span>⚙️</span><span>🤖</span>
+    </div>
+  </footer>
+
+  <script src="script.js.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Oracle | by Donzie Pierce</title>
+  <meta name="description" content="Cinematic weather app that visualizes live weather data with smooth blue-themed animations." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Animated background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="icon">🌤️</span>
+      <h1>Weather Oracle</h1>
+    </div>
+    <label class="unit-toggle">
+      <input type="checkbox" id="unitToggle" />
+      <span>°F / °C</span>
+    </label>
+  </header>
+
+  <main class="content">
+    <form id="searchForm" class="search-bar" autocomplete="off">
+      <input id="cityInput" type="text" placeholder="Enter a city (e.g., Seattle)" required />
+      <button class="btn" type="submit">Search</button>
+    </form>
+
+    <section id="weatherInfo" class="weather-info" hidden>
+      <h2 id="location"></h2>
+      <div class="current glass">
+        <div class="temp-info">
+          <h1 id="temperature">--°</h1>
+          <p id="condition">--</p>
+          <p class="small">Feels like <span id="feelsLike">--°</span></p>
+          <p class="small">Humidity <span id="humidity">--%</span> • Wind <span id="wind">--</span></p>
+        </div>
+        <div class="icon-wrap">
+          <div id="weatherIcon" class="big-icon">☁️</div>
+        </div>
+      </div>
+
+      <h3>7-Day Forecast</h3>
+      <div id="forecast" class="forecast"></div>
+    </section>
+
+    <section id="errorBox" class="error" hidden>
+      <p>City not found. Please try again.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built by <strong>Donzie Pierce</strong> • Powered by <a href="https://open-meteo.com" target="_blank">Open-Meteo</a></p>
+  </footer>
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- App Logic -->
+  <script src="script.js"></script>
+</body>
+</html>

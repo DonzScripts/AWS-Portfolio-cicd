@@ -46,6 +46,46 @@ searchForm.addEventListener("submit", async e=>{
   currentCity = city;
   await fetchWeather(city);
 });
+// 🌆 Autocomplete city suggestions
+const suggestionsBox = document.getElementById("suggestions");
+
+cityInput.addEventListener("input", async () => {
+  const query = cityInput.value.trim();
+  if (query.length < 2) {
+    suggestionsBox.innerHTML = "";
+    return;
+  }
+
+  try {
+    const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=5&language=en&format=json`);
+    const data = await res.json();
+    if (!data.results) {
+      suggestionsBox.innerHTML = "";
+      return;
+    }
+
+    suggestionsBox.innerHTML = data.results
+      .map(
+        city => `
+        <li data-name="${city.name}" data-country="${city.country}" data-lat="${city.latitude}" data-lon="${city.longitude}">
+          ${city.name}${city.admin1 ? ", " + city.admin1 : ""}, ${city.country}
+        </li>`
+      )
+      .join("");
+
+    // Click to select a city
+    document.querySelectorAll("#suggestions li").forEach(item => {
+      item.addEventListener("click", () => {
+        cityInput.value = item.dataset.name;
+        currentCity = item.dataset.name;
+        suggestionsBox.innerHTML = "";
+        fetchWeather(item.dataset.name);
+      });
+    });
+  } catch (err) {
+    suggestionsBox.innerHTML = "";
+  }
+});
 
 // Event: Toggle units
 unitToggle.addEventListener("change", async ()=>{
@@ -149,3 +189,4 @@ function weatherColor(code){
   return { main:"#09336e", glow:0.8 };
 
 }
+

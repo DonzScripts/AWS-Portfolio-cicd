@@ -174,3 +174,66 @@ h2 {
 #suggestions li:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+
+/* Ensure the search bar is styled */
+.search-bar { 
+  position: relative;            /* anchors the dropdown */
+  display: flex; 
+  gap: .5rem; 
+  justify-content: center; 
+  margin-bottom: 2rem;
+}
+
+.search-bar input#cityInput {
+  flex: 1;
+  min-width: 260px;
+  padding: .85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.06);
+  color: #eaf6ff;
+  outline: none;
+}
+
+.search-bar input#cityInput:focus {
+  border-color: rgba(93,193,255,.9);
+  box-shadow: 0 0 0 2px rgba(93,193,255,.25);
+}
+
+.search-bar .btn {
+  padding: .85rem 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#5dc1ff,#3f89ff);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Suggestions dropdown */
+#suggestions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: .25rem;
+  list-style: none;
+  padding: .25rem;
+  border-radius: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.12);
+  z-index: 1000;
+}
+
+#suggestions li {
+  padding: .5rem .6rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+#suggestions li:hover {
+  background: rgba(255,255,255,.15);
+}

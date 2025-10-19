@@ -27,7 +27,12 @@
       <input id="cityInput" type="text" placeholder="Enter a city (e.g., Seattle)" required />
       <button class="btn" type="submit">Search</button>
     </form>
-
+    <form id="searchForm">
+      <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off">
+      <ul id="suggestions"></ul> <!-- 🔹 Add this line -->
+      <button type="submit">Search</button>
+    </form>
+    
     <section id="weatherInfo" class="weather-info" hidden>
       <h2 id="location"></h2>
       <div class="current glass">
@@ -61,4 +66,5 @@
   <!-- App Logic -->
   <script src="script.js"></script>
 </body>
+
 </html>

@@ -79,7 +79,8 @@ function showWeather(name, country, data, unitParam){
 
   const cur = data.current;
   const icon = codeToIcon(cur.weather_code);
-  locationEl.textContent = `${name}, ${country}`;
+  const state = geoData.results[0].admin1 || '';
+  locationEl.textContent = `${name}, ${state ? state + ', ' : ''}${country}`;
   const symbol = unitParam === "fahrenheit" ? "°F" : "°C";
   temperatureEl.textContent = `${Math.round(cur.temperature_2m)}${symbol}`;
   conditionEl.textContent = codeToText(cur.weather_code);
@@ -146,4 +147,5 @@ function weatherColor(code){
   if([71,73,75,77,85,86].includes(code)) return { main:"#0c558a", glow:0.7 };
   if([95,96,99].includes(code)) return { main:"#1b274a", glow:0.5 };
   return { main:"#09336e", glow:0.8 };
+
 }

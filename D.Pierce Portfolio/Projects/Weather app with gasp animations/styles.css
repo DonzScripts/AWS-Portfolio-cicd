@@ -150,3 +150,27 @@ h2 {
   margin-top: 1rem;
   font-weight: 600;
 }
+
+/* 🌆 Autocomplete dropdown */
+#suggestions {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  list-style: none;
+  padding: 0;
+  margin-top: 0.2rem;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: calc(100% - 2rem);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+#suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#suggestions li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

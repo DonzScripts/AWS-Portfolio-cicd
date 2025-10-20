@@ -39,12 +39,52 @@ let currentCity = null;
 let isFahrenheit = false;
 
 // Event: Search for city
-searchForm.addEventListener("submit", async e=>{
+// ✅ Updated Submit Handler — fixes "City not found"
+searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const city = cityInput.value.trim();
-  if(!city) return;
-  currentCity = city;
-  await fetchWeather(city);
+  if (!city) return;
+
+  try {
+    // 1️⃣ Geocode first — get coordinates
+    const gRes = await fetch(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
+    );
+    const gData = await gRes.json();
+     
+    if (!gData.results || !gData.results.length) {
+      showError(); // shows "City not found"
+      return;
+    }
+     
+    const place = gData.results[0];
+    const lat = place.latitude;
+    const lon = place.longitude;
+    const name = place.name;
+    const state = place.admin1 || "";
+    const country = place.country;
+
+    // 2️⃣ Fetch the weather using lat/lon
+    const unitParam = isFahrenheit ? "fahrenheit" : "celsius";
+    const windUnit = isFahrenheit ? "mph" : "kmh";
+
+    const wRes = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+      `&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code` +
+      `&daily=temperature_2m_max,temperature_2m_min,weather_code` +
+      `&temperature_unit=${unitParam}&wind_speed_unit=${windUnit}&timezone=auto`
+    );
+    const wData = await wRes.json();
+
+    // 3️⃣ Display the weather
+    showWeather(name, country, wData, unitParam, state);
+    currentCity = name;
+
+  } catch (err) {
+    console.error(err);
+    showError();
+  }
 });
 // 🌆 Autocomplete city suggestions
 const suggestionsBox = document.getElementById("suggestions");
@@ -189,4 +229,5 @@ function weatherColor(code){
   return { main:"#09336e", glow:0.8 };
 
 }
+
 

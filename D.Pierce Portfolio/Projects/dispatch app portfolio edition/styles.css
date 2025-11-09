@@ -1,0 +1,108 @@
+:root{
+  --bg:#07182e;
+  --panel:#0e2749;
+  --card:#0c213f;
+  --muted:#a6c3df;
+  --text:#e9f5ff;
+  --accent:#56b6ff;
+  --accent2:#3478ff;
+  --ok:#19c37d;
+  --border:rgba(255,255,255,0.12);
+  --glass:rgba(255,255,255,0.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+  background: radial-gradient(1000px 600px at 20% -10%, #114080 0%, transparent 50%), var(--bg);
+  color:var(--text);
+}
+
+/* ===== Portfolio hero ===== */
+.portfolio-hero{
+  padding:32px 20px; border-bottom:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+}
+.hero-inner{max-width:1100px;margin:0 auto}
+.portfolio-hero h1{margin:0 0 6px 0; font-size:28px}
+.portfolio-hero .sub{margin:0; color:var(--muted)}
+.portfolio-hero .meta{margin:6px 0 14px 0; color:#bfe4ff; font-size:13px}
+
+/* Buttons */
+.btn{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff; border:none; border-radius:10px; padding:10px 12px; cursor:pointer; font-weight:700;
+  transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; display:inline-block
+}
+.btn:hover{transform:translateY(-1px); box-shadow:0 6px 16px rgba(52,120,255,0.35)}
+.btn.primary{width:100%; margin-top:6px}
+
+/* Layout + Map */
+.layout{
+  display:grid; grid-template-columns:380px 1fr; gap:16px; padding:16px;
+}
+.panel{display:flex; flex-direction:column; gap:16px}
+.map-wrap{border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--card)}
+#map{width:100%}
+
+/* Cards / Controls */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:14px; padding:16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  animation: pop .35s ease;
+}
+@keyframes pop { from{transform:translateY(6px); opacity:0} to{transform:none; opacity:1} }
+.card h2{margin:4px 0 12px 0; font-size:16px}
+
+.field{display:block; margin-bottom:10px; position:relative}
+.field > span{display:block; margin:2px 0 6px 0; color:var(--muted); font-size:12px}
+.field input[type="text"]{
+  width:100%; padding:12px 12px; border-radius:10px; border:1px solid var(--border);
+  background:rgba(255,255,255,0.06); color:var(--text); outline:none;
+}
+.field input[type="text"]:focus{border-color:#69c3ff; box-shadow:0 0 0 2px rgba(86,182,255,0.25)}
+
+/* Suggestions */
+.suggestions{
+  position:absolute; left:0; right:0; top:100%; margin-top:6px; list-style:none; padding:6px;
+  border:1px solid var(--border); border-radius:10px; background:rgba(16,32,64,0.9); backdrop-filter:blur(6px);
+  max-height:200px; overflow:auto; z-index:5;
+}
+.suggestions:empty{display:none}
+.suggestions li{padding:8px 10px; border-radius:8px; cursor:pointer}
+.suggestions li:hover{background:rgba(255,255,255,0.12)}
+
+/* Row + switch */
+.row{display:flex; align-items:center; gap:10px; margin:10px 0}
+.switch{position:relative; display:inline-block; width:44px; height:24px}
+.switch input{opacity:0; width:0; height:0}
+.slider{
+  position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background:#334d73; transition:.2s; border-radius:30px;
+}
+.slider:before{position:absolute; content:""; height:18px; width:18px; left:3px; bottom:3px; background:white; transition:.2s; border-radius:50%}
+.switch input:checked + .slider{background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.switch input:checked + .slider:before{transform:translateX(20px)}
+.switch-label{font-size:14px; color:var(--muted)}
+
+.range-value{font-size:12px; color:var(--muted)}
+
+/* Results / load cards */
+.results{display:flex; flex-direction:column; gap:10px; max-height:320px; overflow:auto}
+.load{
+  display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center;
+  padding:10px; border:1px solid var(--border); border-radius:12px; background:rgba(255,255,255,0.04);
+}
+.load .meta{font-size:12px; color:var(--muted)}
+.badge{padding:2px 8px; border-radius:999px; font-size:12px; background:#0f3e78; border:1px solid var(--border)}
+.payout{font-weight:800; color:var(--ok)}
+
+.foot{padding:16px; color:var(--muted); text-align:center}
+
+/* Responsive */
+@media (max-width: 980px){
+  .layout{grid-template-columns:1fr}
+  .map-wrap{height:60vh}
+  #map{height:100%}
+}
